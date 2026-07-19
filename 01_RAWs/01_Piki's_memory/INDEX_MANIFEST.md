@@ -1,19 +1,20 @@
 ---
 title: "PIKI'S MEMORY — INDEX MANIFEST"
-manifest_version: "0.1.0-draft"
+manifest_version: "0.1.1-draft"
 drama_id: "PIKIS_MEMORY"
 drama_title: "피키의 기억"
 scope_root: "01_RAWs/01_Piki's_memory"
 default_branch: "main"
 status: "active_draft"
 created_at: "2026-07-19"
+updated_at: "2026-07-19"
 created_by: "☪️PIKI"
 source_governance: "☪️PIKI–✴️DIKI BH 쌍둥이 타워 심포지엄"
 ---
 
 # INDEX MANIFEST
 
-> **사람말:** 이 문서는 기억의 내용을 설명하는 지도나 이야기책이 아니라, 실제 파일이 어디에 있고 어느 판본이며 어떤 방식으로 검증됐는지를 기록하는 설비실 원장이다.
+> **사람말:** 기억 내용을 설명하는 지도나 이야기책이 아니라, 실제 파일이 어디에 있고 어느 판본이며 어떤 방식으로 검증됐는지를 기록하는 설비실 원장이다.
 
 ## 0. 운용 원칙
 
@@ -67,7 +68,8 @@ drive_status: present | unresolved | absent | removed_duplicate
 github_path: string | null
 github_html_url: string | null
 raw_url: string | null
-commit_sha: string | null
+blob_sha: string | null
+verified_ref: string | null
 github_status: active_synced | split_member | partial_path_recovered | pending_sync | path_unresolved | archive
 
 version: string | null
@@ -77,7 +79,7 @@ member_scope: string | null
 canonical_candidate: DRIVE | GITHUB | NONE
 
 generated_from: string | null
-source_sha: string | null
+source_blob_sha: string | null
 prev: string | null
 next: string | null
 
@@ -87,7 +89,9 @@ verified_by: string | null
 notes: string | null
 ```
 
-## 3. 실제 재고 엔트리 — v0.1.0-draft
+> `blob_sha`는 GitHub Contents API가 파일 내용에 부여한 blob SHA다. 커밋 SHA와 혼용하지 않는다.
+
+## 3. 실제 재고 엔트리 — v0.1.1-draft
 
 ```yaml
 entries:
@@ -102,7 +106,8 @@ entries:
     github_path: null
     github_html_url: null
     raw_url: null
-    commit_sha: null
+    blob_sha: null
+    verified_ref: null
     github_status: "path_unresolved"
     version: null
     packaging: "collection_placeholder"
@@ -110,7 +115,7 @@ entries:
     member_scope: "part_aa~part_cn / 66 files"
     canonical_candidate: "DRIVE"
     generated_from: null
-    source_sha: null
+    source_blob_sha: null
     prev: null
     next: null
     last_verified: "2026-07-18"
@@ -129,7 +134,8 @@ entries:
     github_path: "01_RAWs/01_Piki's_memory/10_INDEX/00_PIKI/PIKI_BH-ROOT_INDEX.md"
     github_html_url: "https://github.com/BH-tsuky/Milky-wAI-ORBIT/blob/main/01_RAWs/01_Piki%27s_memory/10_INDEX/00_PIKI/PIKI_BH-ROOT_INDEX.md"
     raw_url: "https://raw.githubusercontent.com/BH-tsuky/Milky-wAI-ORBIT/main/01_RAWs/01_Piki%27s_memory/10_INDEX/00_PIKI/PIKI_BH-ROOT_INDEX.md"
-    commit_sha: "1f7bbb54495f6841857d36228bf8234d1d660d6e"
+    blob_sha: "1f7bbb54495f6841857d36228bf8234d1d660d6e"
+    verified_ref: "main"
     github_status: "active_synced"
     version: "v1"
     packaging: "single"
@@ -137,7 +143,7 @@ entries:
     member_scope: "ROOT"
     canonical_candidate: "GITHUB"
     generated_from: null
-    source_sha: null
+    source_blob_sha: null
     prev: null
     next: null
     last_verified: "2026-07-19"
@@ -156,7 +162,8 @@ entries:
     github_path: "01_RAWs/01_Piki's_memory/10_INDEX/00_PIKI/PIKI_BH-META_INDEX.md"
     github_html_url: "https://github.com/BH-tsuky/Milky-wAI-ORBIT/blob/main/01_RAWs/01_Piki%27s_memory/10_INDEX/00_PIKI/PIKI_BH-META_INDEX.md"
     raw_url: "https://raw.githubusercontent.com/BH-tsuky/Milky-wAI-ORBIT/main/01_RAWs/01_Piki%27s_memory/10_INDEX/00_PIKI/PIKI_BH-META_INDEX.md"
-    commit_sha: "cd0626229071b6fe31909f690621e5056253b993"
+    blob_sha: "cd0626229071b6fe31909f690621e5056253b993"
+    verified_ref: "main"
     github_status: "active_synced"
     version: "v1"
     packaging: "combined_collection"
@@ -164,7 +171,7 @@ entries:
     member_scope: "PIKI_META_01~06"
     canonical_candidate: "GITHUB"
     generated_from: null
-    source_sha: null
+    source_blob_sha: null
     prev: null
     next: null
     last_verified: "2026-07-19"
@@ -183,7 +190,8 @@ entries:
     github_path: "01_RAWs/01_Piki's_memory/10_INDEX/00_PIKI/PIKI_BH-MINI_THINKMAP_v1.md"
     github_html_url: "https://github.com/BH-tsuky/Milky-wAI-ORBIT/blob/main/01_RAWs/01_Piki%27s_memory/10_INDEX/00_PIKI/PIKI_BH-MINI_THINKMAP_v1.md"
     raw_url: "https://raw.githubusercontent.com/BH-tsuky/Milky-wAI-ORBIT/main/01_RAWs/01_Piki%27s_memory/10_INDEX/00_PIKI/PIKI_BH-MINI_THINKMAP_v1.md"
-    commit_sha: "f3ff5a2ecc85a8c6a457ceaae3759944184d8e45"
+    blob_sha: "f3ff5a2ecc85a8c6a457ceaae3759944184d8e45"
+    verified_ref: "main"
     github_status: "active_synced"
     version: "v1"
     packaging: "single"
@@ -191,7 +199,7 @@ entries:
     member_scope: "MINI"
     canonical_candidate: "GITHUB"
     generated_from: null
-    source_sha: null
+    source_blob_sha: null
     prev: null
     next: null
     last_verified: "2026-07-19"
@@ -210,7 +218,8 @@ entries:
     github_path: "01_RAWs/01_Piki's_memory/10_INDEX/00_PIKI/PIKI_BH-SECTOR_SYNAPSE.md"
     github_html_url: "https://github.com/BH-tsuky/Milky-wAI-ORBIT/blob/main/01_RAWs/01_Piki%27s_memory/10_INDEX/00_PIKI/PIKI_BH-SECTOR_SYNAPSE.md"
     raw_url: "https://raw.githubusercontent.com/BH-tsuky/Milky-wAI-ORBIT/main/01_RAWs/01_Piki%27s_memory/10_INDEX/00_PIKI/PIKI_BH-SECTOR_SYNAPSE.md"
-    commit_sha: "270fc3506fa96cc520a9c501506e5d6ac36a5517"
+    blob_sha: "270fc3506fa96cc520a9c501506e5d6ac36a5517"
+    verified_ref: "main"
     github_status: "active_synced"
     version: "v1"
     packaging: "combined_collection"
@@ -218,7 +227,7 @@ entries:
     member_scope: "BH-SECTOR_SYNAPSE_01~03"
     canonical_candidate: "GITHUB"
     generated_from: null
-    source_sha: null
+    source_blob_sha: null
     prev: null
     next: null
     last_verified: "2026-07-19"
@@ -237,7 +246,8 @@ entries:
     github_path: "01_RAWs/01_Piki's_memory/10_INDEX/01_Claude/10_LEAF_INDEX/06_Season_6/leaf_index_s06_part_cn.md"
     github_html_url: "https://github.com/BH-tsuky/Milky-wAI-ORBIT/blob/main/01_RAWs/01_Piki%27s_memory/10_INDEX/01_Claude/10_LEAF_INDEX/06_Season_6/leaf_index_s06_part_cn.md"
     raw_url: "https://raw.githubusercontent.com/BH-tsuky/Milky-wAI-ORBIT/main/01_RAWs/01_Piki%27s_memory/10_INDEX/01_Claude/10_LEAF_INDEX/06_Season_6/leaf_index_s06_part_cn.md"
-    commit_sha: "cbdc98034a7791976b4014f0a96bed186852c303"
+    blob_sha: "cbdc98034a7791976b4014f0a96bed186852c303"
+    verified_ref: "main"
     github_status: "split_member"
     version: "v0.1"
     packaging: "split_member"
@@ -245,7 +255,7 @@ entries:
     member_scope: "part_cn"
     canonical_candidate: "GITHUB"
     generated_from: "Claude-LEAF_INDEX06_Final.md"
-    source_sha: null
+    source_blob_sha: null
     prev: null
     next: null
     last_verified: "2026-07-19"
@@ -264,7 +274,8 @@ entries:
     github_path: "01_RAWs/01_Piki's_memory/10_INDEX/01_Claude/20_CLUSTER_INDEX/06_Season_6/cluster_index_s06_claude_v0.1.md"
     github_html_url: "https://github.com/BH-tsuky/Milky-wAI-ORBIT/blob/main/01_RAWs/01_Piki%27s_memory/10_INDEX/01_Claude/20_CLUSTER_INDEX/06_Season_6/cluster_index_s06_claude_v0.1.md"
     raw_url: "https://raw.githubusercontent.com/BH-tsuky/Milky-wAI-ORBIT/main/01_RAWs/01_Piki%27s_memory/10_INDEX/01_Claude/20_CLUSTER_INDEX/06_Season_6/cluster_index_s06_claude_v0.1.md"
-    commit_sha: "3e94eb96f3b56b291e6a23f2ada678409143369a"
+    blob_sha: "3e94eb96f3b56b291e6a23f2ada678409143369a"
+    verified_ref: "main"
     github_status: "split_member"
     version: "v0.1"
     packaging: "split_member"
@@ -272,7 +283,7 @@ entries:
     member_scope: "CLUSTER_06"
     canonical_candidate: "GITHUB"
     generated_from: "Claude_BH-CLUSTER_INDEX.md"
-    source_sha: null
+    source_blob_sha: null
     prev: null
     next: null
     last_verified: "2026-07-19"
@@ -291,7 +302,8 @@ entries:
     github_path: "01_RAWs/01_Piki's_memory/10_INDEX/01_Claude/30_SECTOR_SYNAPSE/03_Sector_3/claude_BH-SECTOR_SYNAPSE_03_v0.1.md"
     github_html_url: "https://github.com/BH-tsuky/Milky-wAI-ORBIT/blob/main/01_RAWs/01_Piki%27s_memory/10_INDEX/01_Claude/30_SECTOR_SYNAPSE/03_Sector_3/claude_BH-SECTOR_SYNAPSE_03_v0.1.md"
     raw_url: "https://raw.githubusercontent.com/BH-tsuky/Milky-wAI-ORBIT/main/01_RAWs/01_Piki%27s_memory/10_INDEX/01_Claude/30_SECTOR_SYNAPSE/03_Sector_3/claude_BH-SECTOR_SYNAPSE_03_v0.1.md"
-    commit_sha: "5088fbeba257fff4d76cb188772396b937bce4c2"
+    blob_sha: "5088fbeba257fff4d76cb188772396b937bce4c2"
+    verified_ref: "main"
     github_status: "split_member"
     version: "v0.1"
     packaging: "split_member"
@@ -299,7 +311,7 @@ entries:
     member_scope: "SECTOR_SYNAPSE_03"
     canonical_candidate: "GITHUB"
     generated_from: "Claude_BH-SECTOR_SYNAPSE.md"
-    source_sha: null
+    source_blob_sha: null
     prev: null
     next: null
     last_verified: "2026-07-19"
@@ -318,7 +330,8 @@ entries:
     github_path: null
     github_html_url: null
     raw_url: null
-    commit_sha: null
+    blob_sha: null
+    verified_ref: null
     github_status: "pending_sync"
     version: "v1"
     packaging: "combined_collection"
@@ -326,7 +339,7 @@ entries:
     member_scope: "CLUSTER_01~06"
     canonical_candidate: "DRIVE"
     generated_from: null
-    source_sha: null
+    source_blob_sha: null
     prev: null
     next: null
     last_verified: "2026-07-18"
@@ -345,7 +358,8 @@ entries:
     github_path: null
     github_html_url: null
     raw_url: null
-    commit_sha: null
+    blob_sha: null
+    verified_ref: null
     github_status: "pending_sync"
     version: "v1"
     packaging: "combined_collection"
@@ -353,7 +367,7 @@ entries:
     member_scope: "SECTOR_SYNAPSE_01~03"
     canonical_candidate: "DRIVE"
     generated_from: null
-    source_sha: null
+    source_blob_sha: null
     prev: null
     next: null
     last_verified: "2026-07-18"
@@ -365,9 +379,9 @@ entries:
 ## 4. 아직 열려 있는 재고 작업
 
 - COMMON RAW 66개를 파일별 엔트리로 확장
-- PIKI LEAF·CLUSTER 전량의 Drive ID와 GitHub 경로·SHA 실사
+- PIKI LEAF·CLUSTER 전량의 Drive ID와 GitHub 경로·blob SHA 실사
 - DIKI LEAF·CLUSTER·SYNAPSE 전량 분할 엔트리 확장
-- DIKI v2 MINI·ROOT·META 경로·Drive ID·SHA 실사
+- DIKI v2 MINI·ROOT·META 경로·Drive ID·blob SHA 실사
 - 츠키의 GitHub 분할 업로드 완료 후 `split_member` 추가
 - 청이 GitHub `load_mode` 파일럿 결과 반영
 - `01_Claude → 01_DIKI` 폴더 개명은 별도 승인·도구 일괄이동 검증 전까지 보류
@@ -379,4 +393,8 @@ entries:
   date: "2026-07-19"
   change: "초기 설비실 원장 시공. 협의24·26·28·30·31 및 STATE v0.4.4의 검증 재고를 실제 파일로 기입."
   commit_scope: "new file creation under blanket authorization"
+- version: "0.1.1-draft"
+  date: "2026-07-19"
+  change: "SCHEMA_ERRATA-MANIFEST-SHA-01: Contents API의 파일 SHA를 commit_sha로 오기한 초안을 blob_sha로 교정하고 verified_ref를 분리."
+  commit_scope: "same-turn draft correction"
 ```
