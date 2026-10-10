@@ -1,0 +1,19 @@
+[DICO-LEAF::E52::part_bz::R0009-P06] 작성 2026-10-03 14:24 KST 🆚
+TITLE_FN: 52화 한줄요약="Tsuky-AI Exporter 전면 코드 검수 릴레이(18분 5chunk): manifest 연두불(최소권한), counter M+6자리 패딩 실물, thinking 감지, 트리 분기 해석, 한국어 헤더 조립부(발화자|타임스탬프|메시지카운터|첨부파일)까지 — 미러 심장부 해부 완료, 피키의 데이터 윤리('굳이 긁을 필요도 없어')" / 앵커: 미러 헤더의 실제 코드 관측, 검수 릴레이 미완(ca로 계속)
+SRC: part_bz.md | R0009-P06(6/10) | M001583-M001593 | MSG_ACTUAL=11(11슬롯−O 0개: O 마커 없음) | 미러행 L52817-L54063(물리행 = 내장행 − 52816) | D20260518 11:23-11:41 | gpt-5-5-thinking
+
+[사건 앵커 · 미러행 기준]
+L52824-52852 M1583 🈷️ manifest.json 전문: name "Tsuky-AI Exporter" v0.1.0 · permissions [activeTab, scripting, downloads] · host 3사 한정(chatgpt/openai/claude.ai/gemini) · content.js document_idle
+L52858-52933 M1584 🅿️ ★ 1차 심사: "생각보다 깔끔함. 노란불 낮음, 거의 연두불"(L52858) · 빨간불 권한 전무 확인(cookies/webRequest/debugger/history/storage/<all_urls>/nativeMessaging 없음, L52861-52869) · "잡상인 냄새는 약함… 최소 권한에 가깝다"(L52927-52928) · "content.js 보기 전까지 설치 승인 보류"(L52933)
+L52939-53039 M1585 🈷️ content.js chunk1: EXPORT_SCHEMA "tsuky.ai.export.v1"(L52940) · ★counter 함수 = M+6자리 패딩(L52959 — M000001 각인기 실물) · fetchChatGptConversation: /backend-api/conversation/${id}, credentials:"include"(L53011-53032)
+L53043-53140 M1586 🅿️ ★★ 핵심부 판정: "쿠키를 직접 읽거나 저장하지는 않음. 하지만 로그인한 브라우저 세션을 이용해 내부 대화 JSON endpoint에 요청"(L53058-53062) · "위험해서 버려야 함이 아니라 이 확장의 핵심 기능이자 가장 민감한 부분"(L53095) · 상대경로=외부 전송 아님 확인(L53097-53103) · 추가 확인 3항(호출 시점/데이터 행방/출력 내용)
+L53145-53245 M1587 🈷️ chunk2: ★트리 분기 해석 currentBranchNodes(재생성 가지 고려)·chronologicalNodes(L53145-53161) · textFromPart("[첨부파일: 이름]" 변환) · attachmentFromObject(파일명/확장자/MIME/sizeBytes/fileId, L53207-53245) → L53251-53362 M1588 🅿️ "괜찮음. 오히려 꽤 정교함" · fileId 개인보관용/외부공유용 분리 추천(L53326-53329)
+L53368-53460 M1589 🈷️ chunk3: collectAttachments(중복 키 제거) · modelName(model_slug 체인) · ★modeName thinking/instant 정규식 감지(L53401-53414) · ★normalizeChatGptMessage 전체(counter·ids 5종·speaker{type/name/aiName/modelName/mode}·timestamp·attachments·textMarkdown/textPlain·metadata.isThinking, L53420-53459) — [연결] 미러 발화 데이터 구조의 원형 전체
+L53465-53621 M1590 🅿️ ★ 노란불 4종: ids=개인 보관용(private/share 이중 모드 제안, L53526-53529) · ★"metadata.thoughts는 감지 대상에서 빼도 됨… 실제로 출력에 저장하진 않으니까 큰 위험은 아니지만, 굳이 긁을 필요도 없어"(L53555-53559 — 최소 수집 윤리) · role 필터 미확인 · stripMarkdown 미확인
+L53626-53763 M1591 🈷️ chunk4: canonicalFromChatGptRaw(branch 우선, ★role 필터 ["user","assistant","system","tool"], L53680) · nodeToMarkdown(DOM→MD 복원: pre/code 언어 감지·h1-6·ul/ol, L53712-53737) · attachmentNamesFromDom(확장자 정규식 추정, L53746-53762)
+L53768-53905 M1592 🅿️ ★ "system/tool 포함이 과함"(L53776) → user/assistant만+debugMode 분리 지시(L53801-53804) · DOM fallback 변환부 "꽤 잘 짰음"+한계(링크 URL·테이블·blockquote 미처리, L53844-53849) · 남은 검수 목록(다운로드/통신부)
+L53910-54063 M1593 🈷️ chunk5(파트 컷 — 피키 응답은 ca): canonicalFromDomFallback([data-message-author-role] 기반 DOM 폴백 전체, L53948-54004) · buildCanonical(ChatGPT=내부 JSON 우선→DOM 폴백, L54006-54012) · stripMarkdown(L54014-54030) · ★attachmentSummary 한국어 기본값("없음"/"파일명 알 수 없음"/"크기 알 수 없음", L54032-54042) · roleLabel("모델명:"·"모드:" 표기, L54044-54053) · ★★headerLine = "발화자: | 타임스탬프: | 메시지카운터: | 첨부파일:" 조립부(L54055-54062) — [연결] 미러 발화 헤더의 실제 생성 코드
+
+[임시 카테고리] #manifest_연두불(최소권한·빨간불전무·3사한정) #M000001_각인기(counter_6자리패딩_실물·L52959) #credentials_include(세션이용_내부JSON·핵심기능이자_최민감부) #트리분기_해석(currentBranchNodes·재생성가지) #thinking_감지(modeName_정규식·reasoning_effort) #최소수집_윤리(굳이_긁을필요도없어·thoughts제외권고) #이중모드_제안(private_ids포함·share_제거) #한국어_익스포터(없음·파일명알수없음·모국어설계) #headerLine_조립부(발화자_타임스탬프_메시지카운터_첨부파일·미러헤더_생성코드) #검수릴레이_미완(다운로드·통신부→ca)
+
+[검산 범위] 좌표 전수 = 이 턴 원문 직접 대조 기입. 오프셋(-52816)은 L52817(파트 헤더)·L52824(M1583 본문)·L53907(M1593 헤더) 3점 확인 예정(bash 검산란: 개시 14:24 실측). MSG_ACTUAL=11(11슬롯, O 마커 0개 — grep 전수 확인 필요). 재짚기 1순위: content.js 잔여부(다운로드·chrome.runtime 통신·popup.js) 검수 결과와 설치 승인 여부(ca) · 첫 실전 export 성공 장면(미러 성립 경로 최종 확인) · stripMarkdown 품질 판정(피키 예고) · system/tool 필터 수정 반영 여부.
